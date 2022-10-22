@@ -1,6 +1,16 @@
 {
   "expo": {
     "name": "melhora-camera",
+    "plugins": [
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "Eu needs access to your Camera.",
+          "enableMicrophonePermission": true,
+          "microphonePermissionText": "Eu needs access to your Microphone."
+        }
+      ]
+    ],
     "slug": "melhora-camera",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,16 +28,31 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Eu needs access to your Camera.",
+        "NSMicrophoneUsageDescription": "Eu needs access to your Microphone."
+      },
+      "bundleIdentifier": "com.caiossfer.melhoracamera"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.caiossfer.melhoracamera"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f4826906-fa9b-4e6c-8002-dccd5ebbe587"
+      }
     }
   }
 }
